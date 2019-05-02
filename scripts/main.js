@@ -118,8 +118,7 @@ document.querySelector("#companySearch").addEventListener("keypress", keyPressEv
     const foundBusiness = businesses.find(business =>
       business.companyName.includes(keyPressEvent.target.value)
     );
-    outEl.innerHTML =
-      `
+    outEl.innerHTML = `
       <h2>${foundBusiness.companyName}</h2>
       <section>${foundBusiness.addressFullStreet}</section>
       <section>
@@ -139,21 +138,29 @@ document.querySelector("#companySearch").addEventListener("keypress", keyPressEv
 
 outEl.innerHTML += "<h1>Calculate Order Summary - <code>reduce()</code></h1>";
 
-let totalOrders = business.orders.reduce(
-  (currentTotal, nextValue) => currentTotal += nextValue,
-  0   //  <--the second argument for the reduce method
-)
+businesses.forEach(business => {
+  /* CALCULATE ORDER SUMMARY */
+  let totalOrders = business.orders.reduce(
+    (currentTotal, nextValue) => currentTotal += nextValue,
+    0
+  )
 
-outEl.innerHTML += `
-  <h2>${business.companyName}($${totalOrders})</h2>
-  <section>${business.addressFullStreet}</section>
-  <section>
-    ${business.addressCity},
-    ${business.addressStateCode}
-    ${business.addressZipCode}
-  </section>
-`;
-outEl.innerHTML += "<hr/>";
+  outEl.innerHTML += `
+        <h2>
+            ${business.companyName}
+            ($${totalOrders})
+        </h2>
+        <section>
+            ${business.addressFullStreet}
+        </section>
+        <section>
+            ${business.addressCity},
+            ${business.addressStateCode}
+            ${business.addressZipCode}
+        </section>
+    `;
+  outEl.innerHTML += "<hr/>";
+});
 
 
 ////////////////////////////// TODO - exercise //////////////////////////////
