@@ -85,7 +85,7 @@ outEl.innerHTML += makeAgentObject.join("<hr style='border-color:red;border-styl
 
 console.log(makeAgentObject);
 
-// I'm returning a single array when I should be returning multiple objects structured like below
+// I'm returning a single array when I should be returning multiple objects like the data structure below
 /*
 {
   "fullName": "Kaylee Gutkowski",
@@ -110,29 +110,26 @@ const candies = [
     price: 2.49
   }
 ]
-
 const firstCheapCandy = candies.find(candy => candy.price < 2.00)
-console.log(firstCheapCandy)
+console.log(firstCheapCandy);
 
-document
-  .querySelector("#companySearch")
-  .addEventListener("keypress", keyPressEvent => {
-    if (keyPressEvent.charCode === 13) {
-      const foundBusiness = businesses.find(
-        business =>
-          business.companyName.includes(keyPressEvent.target.value)
-      );
-      outEl.innerHTML = `
-        <h2>${foundBusiness.companyName}</h2>
-        <section>${foundBusiness.addressFullStreet}</section>
-        <section>
-          ${foundBusiness.addressCity},
-          ${foundBusiness.addressStateCode}
-          ${foundBusiness.addressZipCode}
-        </section>
-      `;
-    }
-  });
+document.querySelector("#companySearch").addEventListener("keypress", keyPressEvent => {
+  if (keyPressEvent.charCode === 13) {
+    const foundBusiness = businesses.find(business =>
+      business.companyName.includes(keyPressEvent.target.value)
+    );
+    outEl.innerHTML =
+      `
+      <h2>${foundBusiness.companyName}</h2>
+      <section>${foundBusiness.addressFullStreet}</section>
+      <section>
+      ${foundBusiness.addressCity},
+      ${foundBusiness.addressStateCode}
+      ${foundBusiness.addressZipCode}
+      </section>
+    `;
+  }
+});
 
 ////////////////////////////// TODO - exercise //////////////////////////////
 // 1. Refactor your code to search for purchasing agents instead. If the search 
