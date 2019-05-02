@@ -15,7 +15,7 @@ businesses.forEach(business => {
   outEl.innerHTML += "<hr/>"
 });
 
-////////////////////////////// exercise - DONE //////////////////////////////
+////////////////////////////// filter() exercise - COMPLETE //////////////////////////////
 // Add another section sibling to the current one and use object dot notation 
 // to display each company's city. Use square bracket notation to display the 
 // state code. Use dynamic square bracket notation to add the zip code.
@@ -33,9 +33,11 @@ const newYorkBusinesses = businesses.filter(business => {
 
 console.log("newYorkBusinesses", newYorkBusinesses);
 
-outEl.innerHTML += "<h1>Purchasing Agents - <code>map()</code></h1>";
+
 
 // Using map(), extract the purchasing agent object from each business and store it in a new array
+
+outEl.innerHTML += "<h1>Purchasing Agents - <code>map()</code></h1>";
 
 const agents = businesses.map(business => {
   return business.purchasingAgent
@@ -54,37 +56,36 @@ let newList = businesses.map(showBusiness);
 outEl.innerHTML += newList.join("<hr style='border-color:yellow; border-width:3px;' />");
 
 
-////////////////////////////// exercise - DONE //////////////////////////////
+////////////////////////////// filter() exercise - COMPLETE //////////////////////////////
 // Use filter() to create another array named manufacturingBusinesses that will 
 // contain all businesses in the manufacturing industry. Display those to the DOM.
 
-const manufacturers = businesses.filter((poop) => {
-  if (poop.companyIndustry === "Manufacturing") {
-    return `<div>${poop.companyName}</div>`
+const manufacturingBusinesses = businesses.filter((manufacturers) => {
+  if (manufacturers.companyIndustry === "Manufacturing") {
+    return `<div>${manufacturers.companyName}</div>`
   };
 })
-console.log("manufacturers", manufacturers);
+console.log("manufacturingBusinesses", manufacturingBusinesses);
 
-////////////////////////////// IN PROGRESSm - exercise //////////////////////////////
+////////////////////////////// map() exercise - NEED GUIDANCE //////////////////////////////
 // Instead of just returning the purchasing agent object, return a new object 
 // that has the full name of the purchasing agent, the company name, and the 
 // phone number. The data structure is shown below. Use that new data structure 
 // to display the agent with their company and phone number.
 
-function agentObject(agent, company, phone) {
+function agentObject(agent) {
   return `${agent.purchasingAgent.nameFirst}
-  ${agent.purchasingAgent.nameLast}
-  ${company.companyName}
-  ${phone.phoneWork}`
+  ${agent.purchasingAgent.nameLast}<span>,</span>
+  ${agent.companyName}<span>,</span>
+  ${agent.phoneWork}`
 }
-
 
 let makeAgentObject = businesses.map(agentObject);
 outEl.innerHTML += makeAgentObject.join("<hr style='border-color:red;border-style:dashed;' />")
 
 console.log(makeAgentObject);
 
-
+// I'm returning a single array when I should be returning multiple objects structured like below
 /*
 {
   "fullName": "Kaylee Gutkowski",
