@@ -1,7 +1,7 @@
 
 console.log("hello big spenders");
 
-const outEl = document.querySelector("#output")
+const output = document.querySelector("#output")
 
 // Use the filter method to get all the big spenders in the main array into a new one.
 
