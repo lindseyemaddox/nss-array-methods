@@ -73,11 +73,6 @@ let sum = arr.reduce((acc, val) => acc + val, 100);
 
 
 
-Chaining Array Methods
-
-// Create three pure functions and use them with our chain. A pure function is one that given the same input, 
-// will always return the same output without side effects. Pure functions only depend on their input arguments.
-
 data = [
   {
     name: 'Butters',
@@ -101,63 +96,41 @@ data = [
   },
 ];
 
-// Check if an element is a dog. It takes our element as input and returns either true or false.
+
+// Chaining Array Methods
+
+// A pure function is one that given the same input, will always return the same output without side effects. 
+// Pure functions only depend on their input arguments.
+
+
+// Check if the animal is a dog. Take the animal as input and return either true or false.
 let isDog = (animal) => {
   return animal.type === 'dog';
 }
 
-// Multiply the age of an element by seven and returns only the age in dog years:
+// Multiply the age of an element by seven and return only the age in dog years:
 let dogYears = (animal) => {
   return animal.age * 7;
 }
 
-// Sum two numbers and returns the result:
-let sum = (sum, animal) => {
-  return sum + animal;
+// Sum two numbers and return the result:
+let sum = (ages, animal) => {
+  return ages + animal;
 }
 
-// chain the above pure functions together to add dogs' ages together in dog years:
-let ages = data
-  .filter(isDog)
-  .map(dogYears)
-  .reduce(sum);
+// Chain the above pure function s together to add dogs' ages together in dog years:
+let ages = data.filter(isDog).map(dogYears).reduce(sum);
 
-// ages = 84
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Chaining Map, Filter, and Reduce
-
-
-
-
-
-
-
-
+console.log("ages", ages)
 
 
   // sidenote  
-  (v % 2 === 0 ? v * 2 : v;)
-// is the same thing as
+  (v % 2 === 0 ? v * 2 : v)
+
+// translates to
 if (v % 2 === 0) { return v * 2; } else { return v; }
-// is the same thing as
-// If the value divided by two has a remainder of zero, we’ll double the current value.
-// If the remainder is not zero, we’ll return v or the current value unchanged.
+
+// translates to
+// If the value divided by two has a remainder of zero, double the current value.
+// If the remainder is not zero, return v or the current value unchanged.
 

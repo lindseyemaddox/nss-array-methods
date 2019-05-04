@@ -1,5 +1,5 @@
 
-console.log("chaining tatum");
+console.log("hello, chaining");
 
 // Using one single line of JavaScript code, complete the following tasks 
 // on the array of integers below.
@@ -11,3 +11,10 @@ console.log("chaining tatum");
 
 
 const integers = [13, 25, 6, 3, 11, 2, 18, 7, 21, 1, 29, 20, 12, 8];
+
+const output = document.querySelector("#output")
+
+const chainingTatum = integers
+  .sort((a, b) => { return a - b }).filter(integer => integer < 20).map(integer => (integer * 1.5 - 1)).reduce((integer, initValue) => integer += initValue);
+
+output.innerHTML += chainingTatum
